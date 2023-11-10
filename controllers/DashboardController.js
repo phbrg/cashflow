@@ -12,6 +12,14 @@ module.exports = class HomeContoller {
         let expense = await Expense.findAll({ raw: true, where: { UserId: userId } });
         let income = await Income.findAll({ raw: true, where: { UserId: userId } });
 
+        expense.map(array => { 
+            array.createdAt = `${array.createdAt.getFullYear()}-${array.createdAt.getMonth() + 1}-${array.createdAt.getDate()}`
+        });
+
+        income.map(array => { 
+            array.createdAt = `${array.createdAt.getFullYear()}-${array.createdAt.getMonth() + 1}-${array.createdAt.getDate()}`
+        });
+
         let hasGoal = true;
         let hasExpense = true;
         let hasIncome = true;
@@ -30,21 +38,6 @@ module.exports = class HomeContoller {
         const totalIncome = income.reduce((ac, obj) => ac + obj.amount, 0);
 
         let realBalance = ( user.balance + totalIncome ) - totalExpense;
-
-        function formatDate(array) {
-            array.map((array) => {
-                console.log(new Date(array.date));
-                let day = array.date.getDate() +1;
-
-                let date = `${array.date.getDate() + 1}/${array.date.getMonth() + 1}/${array.date.getFullYear()}`
-                array.date = date;
-            });
-        }
-
-        formatDate(goal);
-        formatDate(expense);
-        formatDate(income);
-
 
         res.render('dashboard/dashboard', { user, goal, expense, income, realBalance, hasGoal, hasExpense, hasIncome });
     }
@@ -110,7 +103,6 @@ module.exports = class HomeContoller {
         }
 
         const expense = {
-            date: new Date(),
             category,
             description,
             amount: parseFloat(amount),
@@ -145,7 +137,6 @@ module.exports = class HomeContoller {
         }
 
         const income = {
-            date: new Date(),
             source,
             description,
             amount: parseFloat(amount),
@@ -164,11 +155,6 @@ module.exports = class HomeContoller {
 
         const goal = await FinanceGoal.findAll({ raw: true, where: { UserId: userId } });
 
-        goal.map((array) => {
-            let date = `${array.date.getDate()}/${array.date.getMonth() + 1}/${array.date.getFullYear()}`
-            array.date = date;
-        });
-
         res.render('dashboard/goal', { goal });
     }
 
@@ -177,9 +163,6 @@ module.exports = class HomeContoller {
         const userId = req.session.userid;
 
         const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId } });
-
-        let date = `${goal.date.getDate() + 1}/${goal.date.getMonth() + 1}/${goal.date.getFullYear()}`
-        goal.date = date;
 
         if(goal.UserId !== userId) {
             res.redirect('/error');
@@ -201,7 +184,6 @@ module.exports = class HomeContoller {
         const userId = req.session.userid;
 
         let { title, date, amount, completed } = req.body;
-
         const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId }  });
 
         if(goal.UserId !== userId) {
@@ -216,17 +198,17 @@ module.exports = class HomeContoller {
         }
 
         if(!date) {
-            date = new Date(goal.date);
+            date = goal.date;
         }
 
         const goalEdit = {
             title,
             date,
-            amount,
-            completed
+            amount: parseFloat(amount),
+            completed,
         }
 
-        await FinanceGoal.update(goalEdit, { where: { id: goalEdit } })
+        await FinanceGoal.update(goalEdit, { where: { id: goalId } })
             .then(() => {
                 res.redirect('/dashboard/goal');
             }).catch((err) => console.log(`Update error: ${err}`));

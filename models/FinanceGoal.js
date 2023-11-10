@@ -9,7 +9,7 @@ const FinanceGoal = db.define('FinanceGoal', {
         allowNull: false
     },
     date: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     },
     amount: {

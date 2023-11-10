@@ -4,10 +4,6 @@ const db = require('../db/conn');
 const User = require('../models/User');
 
 const Expense = db.define('Expense', {
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
     category: {
         type: DataTypes.STRING,
         allowNull: false

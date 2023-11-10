@@ -1,9 +1,9 @@
 <ul>
     {{#each goal}}
-    <li>
+    <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
         Nome: {{this.title}} |
         Data: {{this.date}} |
-        Meta: {{this.amount}}
+        Meta: {{this.amount}} 
         <a href="/dashboard/editgoal/{{this.id}}">Editar meta</a>
     </li>
     {{/each}}
