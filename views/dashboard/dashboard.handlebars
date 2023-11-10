@@ -1,12 +1,12 @@
 <h1>Olá {{user.name}}, seja bem vindo a dashboard</h1>
 
-<h2>Seu dinheiro: {{realBalance}}</h2>
+<h2>Seu dinheiro: <span {{#if owing}} style="color: red" {{else}} style="color: green" {{/if}} >{{realBalance}}</span></h2>
 
 {{#if hasGoal}}
 <p>Suas metas:</p>
 <ul>
     {{#each goal}}
-    <li>
+    <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
         Nome: {{this.title}} |
         Data: {{this.date}} |
         Quantia: {{this.amount}}

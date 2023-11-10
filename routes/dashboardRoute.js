@@ -15,5 +15,6 @@ router.post('/registergoal', auth, DashboardController.postRegisterGoal);
 router.post('/registerexpense', auth, DashboardController.postRegisterExpense);
 router.post('/registerincome', auth, DashboardController.postRegisterIncome);
 router.post('/editgoal/:id', auth, DashboardController.postEditGoal);
+router.post('/deletegoal/:id', auth, DashboardController.deleteGoal);
 
 module.exports = router;

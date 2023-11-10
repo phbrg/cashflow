@@ -39,7 +39,22 @@ module.exports = class HomeContoller {
 
         let realBalance = ( user.balance + totalIncome ) - totalExpense;
 
-        res.render('dashboard/dashboard', { user, goal, expense, income, realBalance, hasGoal, hasExpense, hasIncome });
+        let owing = false;
+        if(realBalance < 0) {
+            owing = true;
+        }
+
+        goal.forEach((array) => {
+            if(realBalance >= array.amount) {
+                array.completed = true;
+            }
+
+            if(new Date >= new Date(array.date) && realBalance < array.amount) {
+                array.completed = false;
+            }
+        })
+
+        res.render('dashboard/dashboard', { user, goal, expense, income, realBalance, hasGoal, hasExpense, hasIncome, owing });
     }
 
     static getRegisterGoal(req, res) {
@@ -212,5 +227,23 @@ module.exports = class HomeContoller {
             .then(() => {
                 res.redirect('/dashboard/goal');
             }).catch((err) => console.log(`Update error: ${err}`));
+    }
+
+    static async deleteGoal(req, res) {
+        const goalId = req.params.id;
+        const userId = req.session.userid;
+
+        const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId } });
+
+        if(parseFloat(goal.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        await FinanceGoal.destroy({ where: { id: goalId } })
+            .then(() => {
+                res.redirect('/dashboard/goal');
+            })
+            .catch((err) => console.log(`Delete goal error: ${err}`))
     }
 }
