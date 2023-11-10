@@ -1,0 +1,54 @@
+<h1>Olá {{user.name}}, seja bem vindo a dashboard</h1>
+
+<h2>Seu dinheiro: {{realBalance}}</h2>
+
+{{#if hasGoal}}
+<p>Suas metas:</p>
+<ul>
+    {{#each goal}}
+    <li>
+        Nome: {{this.title}} |
+        Data: {{this.date}} |
+        Quantia: {{this.amount}}
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Você ainda não tem metas registradas.</p>
+{{/if}}
+
+{{#if hasExpense}}
+<p>Suas despesas</p>
+<ul>
+    {{#each expense}}
+    <li>
+        Categoria: {{this.category}} |
+        Descrição: {{this.description}} |
+        Quantia: {{this.amount}} |
+        Data: {{this.date}}
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Você não tem despesas registradas.</p>
+{{/if}}
+
+{{#if hasIncome}}
+<p>Seus ganhos</p>
+<ul>
+    {{#each income}}
+    <li>
+        Fonte: {{this.source}} |
+        Descrição: {{this.description}} |
+        Quantia: {{this.amount}} |
+        Data: {{this.date}}
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Você não tem ganhos registrados.</p>
+{{/if}}
+<a href="/dashboard/registergoal">registrar metas</a>
+<a href="/dashboard/registerexpense">registrar despesas</a>
+<a href="/dashboard/registerincome">registrar ganhos</a>
+<a href="/dashboard/goal">metas</a>

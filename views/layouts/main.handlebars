@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/" type="image/x-icon">
+    <script src="/scripts/script.js"></script>
+    <title>Cashflow</title>
+</head>
+
+<body>
+    <header>
+        {{#if session.userid}}
+            <p>logado</p>
+        {{/if}}
+        <a href="/">home</a>
+        <a href="/auth/login">login</a>
+        <a href="/auth/register">register</a>
+        <a href="/dashboard">dashboard</a>
+        <a href="/auth/logout">logout</a>
+    </header>
+    {{#if messages.message}}
+    <div class="flash">
+        {{messages.message}}
+    </div>
+    {{/if}}
+    <main>
+        {{{body}}}
+    </main>
+    <footer>
+       
+    </footer>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

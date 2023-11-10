@@ -1,0 +1,12 @@
+<ul>
+    {{#each goal}}
+    <li>
+        Nome: {{this.title}} |
+        Data: {{this.date}} |
+        Meta: {{this.amount}}
+        <a href="/dashboard/editgoal/{{this.id}}">Editar meta</a>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/dashboard/registergoal">registrar metas</a>

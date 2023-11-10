@@ -1,0 +1,12 @@
+<form action="/dashboard/editgoal/{{goalId}}" method="POST">
+    <input type="text" value="{{goal.title}}" name="title" placeholder="Titulo">
+    <label for="date">Data atual: {{goal.date}}</label>
+    <input type="date" name="date" placeholder="Data">
+    <input type="number" value="{{goal.amount}}" name="amount" placeholder="Quantia">
+    <input type="text" value="{{completed}}" name="completed" placeholder="Atingido">
+    <button>Editar</button>
+</form>
+
+<form action="/dashboard/deletegoal/{{goalId}}">
+    <button>Deletar meta</button>
+</form>
