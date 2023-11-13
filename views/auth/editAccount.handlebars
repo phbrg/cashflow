@@ -1,7 +1,7 @@
 <form action="/auth/editaccount" method="POST">
-    <input type="text" name="name" value="{{user.name}}">
-    <input type="email" name="email" value="{{user.email}}">
-    <input type="text" name="cpf" value="{{user.cpf}}">
+    <input type="text" name="name" value="{{user.name}}" placeholder="Nome">
+    <input type="email" name="email" value="{{user.email}}" placeholder="Email">
+    <input type="text" name="cpf" value="{{user.cpf}}" placeholder="Cpf - 123.456.789-00">
     <input type="password" name="password" placeholder="Senha">
     <input type="password" name="confirmPassword" placeholder="Confirmar senha">
     <button>Editar</button>

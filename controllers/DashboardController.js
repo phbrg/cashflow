@@ -220,6 +220,10 @@ module.exports = class HomeContoller {
             completed = true;
         } else if(completed[0].toLowerCase() == 'n') {
             completed = false;
+        } else {
+            req.flash('message', 'As metas aceitam apenas os valores: SIM e NÃO');
+            res.render('dashboard/editGoal');
+            return;
         }
 
         if(!date) {

@@ -13,15 +13,23 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
+      <img id="img-logo" class="img-logo" src="/images/CashFlow-Logo.svg" alt="logo-img" />
+
+      <div class="menu-mobile" onclick="activateMenu()">
+        <img id="img-menu" src="/images/Icon.png" alt="menu-icon" />
+      </div>
+
+      <nav>
+        <a href="/">Home</a>
         {{#if session.userid}}
-            <p>logado</p>
+                <a href="/dashboard">dashboard</a>
+                <a href="/auth/logout">logout</a>
+            {{else}}
+                <a href="/auth/login">login</a>
+                <a href="/auth/register">register</a>
         {{/if}}
-        <a href="/">home</a>
-        <a href="/auth/login">login</a>
-        <a href="/auth/register">register</a>
-        <a href="/dashboard">dashboard</a>
-        <a href="/auth/logout">logout</a>
+      </nav>
     </header>
     {{#if messages.message}}
     <div class="flash">

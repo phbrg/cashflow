@@ -1,8 +1,14 @@
 <form action="/dashboard/editexpense/{{expenseId}}" method="POST">
     <select name="category">
-        <option value="value1">value1</option>
-        <option value="value2">value2</option>
-        <option value="value3">value3</option>
+        <option value="moradia">moradia</option>
+        <option value="alimentação">alimentação</option>
+        <option value="transporte">transporte</option>
+        <option value="saude">saude</option>
+        <option value="educação">educação</option>
+        <option value="entreterimento">entreterimento</option>
+        <option value="contas fixas">contas fixas</option>
+        <option value="emergencia">emergencia</option>
+        <option value="outros">outros</option>
     </select>
     <input type="text" value="{{expense.description}}" name="description" placeholder="Descrição">
     <input type="number" value="{{expense.amount}}" name="amount" placeholder="Quantia">
