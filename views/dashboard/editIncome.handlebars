@@ -1,0 +1,14 @@
+<form action="/dashboard/editincome/{{incomeId}}" method="POST">
+    <select name="source">
+        <option value="value1">value1</option>
+        <option value="value2">value2</option>
+        <option value="value3">value3</option>
+    </select>
+    <input type="text" value="{{income.description}}" name="description" placeholder="Descrição">
+    <input type="number" value="{{income.amount}}" name="amount" placeholder="Quantia">
+    <button>Editar</button>
+</form>
+
+<form action="/dashboard/deletincome/{{incomeId}}" method="POST">
+    <button>Deletar ganho</button>
+</form>

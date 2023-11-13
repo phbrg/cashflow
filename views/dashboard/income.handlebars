@@ -1,0 +1,13 @@
+<ul>
+    {{#each income}}
+    <li>
+        Origem: {{this.source}} |
+        Descrição: {{this.description}} |
+        Data: {{this.createdAt}} |
+        Quantia: {{this.amount}} 
+        <a href="/dashboard/editincome/{{this.id}}">Editar gasto</a>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/dashboard/registerincome">registrar gastos</a>

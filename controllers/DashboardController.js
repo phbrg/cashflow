@@ -179,6 +179,11 @@ module.exports = class HomeContoller {
 
         const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId } });
 
+        if(!goal) {
+            res.redirect('/error');
+            return;
+        }
+
         if(goal.UserId !== userId) {
             res.redirect('/error');
             return;
@@ -200,6 +205,11 @@ module.exports = class HomeContoller {
 
         let { title, date, amount, completed } = req.body;
         const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId }  });
+
+        if(!goal) {
+            res.redirect('/error');
+            return;
+        }
 
         if(goal.UserId !== userId) {
             res.redirect('/error');
@@ -229,11 +239,16 @@ module.exports = class HomeContoller {
             }).catch((err) => console.log(`Update error: ${err}`));
     }
 
-    static async deleteGoal(req, res) {
+    static async deletGoal(req, res) {
         const goalId = req.params.id;
         const userId = req.session.userid;
 
         const goal = await FinanceGoal.findOne({ raw: true, where: { id: goalId } });
+
+        if(!goal) {
+            res.redirect('/error');
+            return;
+        }
 
         if(parseFloat(goal.UserId) !== parseFloat(userId)) {
             res.redirect('/error');
@@ -244,6 +259,177 @@ module.exports = class HomeContoller {
             .then(() => {
                 res.redirect('/dashboard/goal');
             })
-            .catch((err) => console.log(`Delete goal error: ${err}`))
+            .catch((err) => console.log(`delet goal error: ${err}`))
+    }
+
+    static async getExpense(req, res) {
+        const userId = req.session.userid;
+        const expense = await Expense.findAll({ raw: true, where: { UserId: userId } });
+
+        expense.forEach(array => {
+            const fullDate = new Date(array.createdAt);
+
+            array.createdAt = `${fullDate.getFullYear()}-${fullDate.getMonth() + 1}-${fullDate.getDate()}`
+        })
+
+        res.render('dashboard/expense', { expense });
+    }
+
+    static async editExpense(req, res) {
+        const userId = req.session.userid;
+        const expenseId = req.params.id;
+
+        const expense = await Expense.findOne({ raw: true, where: { id: expenseId } });
+
+        if(!expense) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(expense.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        res.render('dashboard/editExpense', { expense, expenseId });
+    }
+
+    static async postEditExpense(req, res) {
+        const userId = req.session.userid;
+        const expenseId = req.params.id;
+
+        const { category, description, amount } = req.body;
+
+        const expense = await Expense.findOne({ where: { id: expenseId } });
+
+        if(!expense) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(expense.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        const expenseUpdate = {
+            category,
+            description,
+            amount: parseFloat(amount)
+        }
+
+        await Expense.update(expenseUpdate, { where: { id: expenseId } })
+            .then(() => {
+                res.redirect('/dashboard/expense');
+            }).catch((err) => console.log(`Update error: ${err}`));
+    }
+
+    static async deletExpense(req, res) {
+        const expenseId = req.params.id;
+        const userId = req.session.userid;
+
+        const expense = await Expense.findOne({ raw: true, where: { id: expenseId } });
+
+        if(!expense) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(expense.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        await Expense.destroy({ where: { id: expenseId } })
+            .then(() => {
+                res.redirect('/dashboard/expense');
+            })
+            .catch((err) => console.log(`delet expense error: ${err}`))
+    }
+
+    static async getIncome(req, res) {
+        const userId = req.session.userid;
+
+        const income = await Income.findAll({ raw: true, where: { UserId: userId } });
+
+        income.forEach(array => {
+            const fullDate = new Date(array.createdAt);
+
+            array.createdAt = `${fullDate.getFullYear()}-${fullDate.getMonth() + 1}-${fullDate.getDate()}`
+        })
+
+        res.render('dashboard/income', { income });
+    }
+
+    static async editIncome(req, res) {
+        const userId = req.session.userid;
+        const incomeId = req.params.id;
+
+        const income = await Income.findOne({ raw: true, where: { id: incomeId } });
+
+        if(!income) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(income.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        res.render('dashboard/editincome', { income, incomeId });
+    }
+
+    static async postEditIncome(req, res) {
+        const userId = req.session.userid;
+        const incomeId = req.params.id;
+
+        const { source, description, amount } = req.body;
+
+        const income = await Income.findOne({ where: { id: incomeId } });
+
+        if(!income) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(income.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        const incomeUpdate = {
+            source,
+            description,
+            amount: parseFloat(amount)
+        }
+
+        await Income.update(incomeUpdate, { where: { id: incomeId } })
+            .then(() => {
+                res.redirect('/dashboard/income');
+            }).catch((err) => console.log(`Update error: ${err}`));
+    }
+
+    static async deletIncome(req, res) {
+        const incomeId = req.params.id;
+        const userId = req.session.userid;
+
+        const income = await Income.findOne({ raw: true, where: { id: incomeId } });
+
+        if(!income) {
+            res.redirect('/error');
+            return;
+        }
+
+        if(parseFloat(income.UserId) !== parseFloat(userId)) {
+            res.redirect('/error');
+            return;
+        }
+
+        await Income.destroy({ where: { id: incomeId } })
+            .then(() => {
+                res.redirect('/dashboard/income');
+            })
+            .catch((err) => console.log(`delet income error: ${err}`))
     }
 }

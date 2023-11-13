@@ -1,0 +1,14 @@
+<form action="/dashboard/editexpense/{{expenseId}}" method="POST">
+    <select name="category">
+        <option value="value1">value1</option>
+        <option value="value2">value2</option>
+        <option value="value3">value3</option>
+    </select>
+    <input type="text" value="{{expense.description}}" name="description" placeholder="Descrição">
+    <input type="number" value="{{expense.amount}}" name="amount" placeholder="Quantia">
+    <button>Editar</button>
+</form>
+
+<form action="/dashboard/deletexpense/{{expenseId}}" method="POST">
+    <button>Deletar meta</button>
+</form>

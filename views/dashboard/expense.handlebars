@@ -1,0 +1,13 @@
+<ul>
+    {{#each expense}}
+    <li>
+        Categoria: {{this.category}} |
+        Descrição: {{this.description}} |
+        Data: {{this.createdAt}} |
+        Quantia: {{this.amount}} 
+        <a href="/dashboard/editexpense/{{this.id}}">Editar gasto</a>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/dashboard/registerexpense">registrar gastos</a>
