@@ -1,57 +1,118 @@
-<h1>Olá {{user.name}}, seja bem vindo a dashboard</h1>
+<nav class="menu-lateral">
 
-<h2>Seu dinheiro: <span {{#if owing}} style="color: red" {{else}} style="color: green" {{/if}} >{{realBalance}}</span></h2>
+    <div class="btn-expandir">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <!--btn-expandir-->
 
-{{#if hasGoal}}
-<p>Suas metas:</p>
-<ul>
-    {{#each goal}}
-    <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
-        Nome: {{this.title}} |
-        Data: {{this.date}} |
-        Quantia: {{this.amount}}
-    </li>
-    {{/each}}
-</ul>
-{{else}}
-<p>Você ainda não tem metas registradas.</p>
-{{/if}}
+    <ul>
+        <li class="item-menu ativo">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
+                <span class="txt-link">Dashboard</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                <span class="txt-link">Metas</span>
+            </a>
+        </li>
 
-{{#if hasExpense}}
-<p>Suas despesas</p>
-<ul>
-    {{#each expense}}
-    <li>
-        Categoria: {{this.category}} |
-        Descrição: {{this.description}} |
-        Quantia: {{this.amount}} |
-        Data: {{this.createdAt}}
-    </li>
-    {{/each}}
-</ul>
-{{else}}
-<p>Você não tem despesas registradas.</p>
-{{/if}}
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                <span class="txt-link">Gastos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                <span class="txt-link">Ganhos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="txt-link">Conta</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <span class="txt-link">Sair</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 
-{{#if hasIncome}}
-<p>Seus ganhos</p>
-<ul>
-    {{#each income}}
-    <li>
-        Fonte: {{this.source}} |
-        Descrição: {{this.description}} |
-        Quantia: {{this.amount}} |
-        Data: {{this.createdAt}}
-    </li>
-    {{/each}}
-</ul>
-{{else}}
-<p>Você não tem ganhos registrados.</p>
-{{/if}}
-<a href="/dashboard/registergoal">registrar metas</a>
-<a href="/dashboard/registerexpense">registrar despesas</a>
-<a href="/dashboard/registerincome">registrar ganhos</a>
-<a href="/dashboard/goal">metas</a>
-<a href="/dashboard/expense">gastos</a>
-<a href="/dashboard/income">entrada</a>
-<a href="/auth/account">conta</a>
+
+<section class="container-main">
+    <div class="container-title">
+        <h1>Olá {{user.name}}, seja bem vindo a dashboard</h1>
+
+        <h2>Seu dinheiro: <span {{#if owing}} style="color: red" {{else}} style="color: green"
+                {{/if}}>{{realBalance}}</span></h2>
+    </div>
+
+
+    {{#if hasGoal}}
+    <p>Suas metas:</p>
+    <ul>
+        {{#each goal}}
+        <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
+            Nome: {{this.title}} |
+            Data: {{this.date}} |
+            Quantia: {{this.amount}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class = 'empty-table'>Você ainda não tem metas registradas.</p>
+    {{/if}}
+
+    {{#if hasExpense}}
+    <p>Suas despesas</p>
+    <ul>
+        {{#each expense}}
+        <li>
+            Categoria: {{this.category}} |
+            Descrição: {{this.description}} |
+            Quantia: {{this.amount}} |
+            Data: {{this.createdAt}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class = 'empty-table'>Você não tem despesas registradas.</p>
+    {{/if}}
+
+    {{#if hasIncome}}
+    <p>Seus ganhos</p>
+    <ul>
+        {{#each income}}
+        <li>
+            Fonte: {{this.source}} |
+            Descrição: {{this.description}} |
+            Quantia: {{this.amount}} |
+            Data: {{this.createdAt}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class = 'empty-table'>Você não tem ganhos registrados.</p>
+    {{/if}}
+    <a href="/dashboard/registergoal">registrar <span>metas</span></a>
+    <a href="/dashboard/registerexpense">registrar <span>despesas</span></a>
+    <a href="/dashboard/registerincome">registrar <span>ganhos</span></a>
+    <a href="/dashboard/goal">metas</a>
+    <a href="/dashboard/expense">gastos</a>
+    <a href="/dashboard/income">entrada</a>
+    <a href="/auth/account">conta</a>
+</section>

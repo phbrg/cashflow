@@ -8,11 +8,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/" type="image/x-icon">
-    <script src="/scripts/script.js"></script>
     <title>Cashflow</title>
 </head>
 
 <body>
+  
     <header id="header">
       <img id="img-logo" class="img-logo" src="/images/CashFlow-Logo.svg" alt="logo-img" />
 
@@ -23,7 +23,7 @@
       <nav>
         <a href="/">Home</a>
         {{#if session.userid}}
-                <a href="/dashboard">dashboard</a>
+                <a href="/dashboard" class = 'a'>dashboard</a>
                 <a href="/auth/logout">logout</a>
             {{else}}
                 <a href="/auth/login">login</a>
@@ -36,11 +36,21 @@
         {{messages.message}}
     </div>
     {{/if}}
-    <main>
+   
         {{{body}}}
-    </main>
-    <footer>
-       
+    
+
+        <footer>
+      <div class="footer_lower">
+
+        <div class="home-sci">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class='fa-brands fa-instagram'></i></a>
+          <a href="#"><i class='fa-brands fa-linkedin'></i></a>
+        </div>
+
+        <p>©2023 CashFlow Ltda</p>
+      </div>
     </footer>
     <script src="/scripts/script.js"></script>
 </body>
