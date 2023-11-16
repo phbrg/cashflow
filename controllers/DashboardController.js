@@ -170,7 +170,8 @@ module.exports = class HomeContoller {
 
         const goal = await FinanceGoal.findAll({ raw: true, where: { UserId: userId } });
 
-        res.render('dashboard/goal', { goal });
+        let hasGoal = (goal !== undefined || goal !== null || goal.length == 0);
+        res.render('dashboard/goal', { goal, hasGoal });
     }
 
     static async editGoal(req, res) {

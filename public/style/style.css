@@ -522,7 +522,7 @@ header .a:hover::after {
   background: var(--brand-green);
   padding: 16px 32px;
   color: var(--white-color);
-
+  width: 50%;
   font-size: 14px;
   font-weight: 500;
   margin-top: 48px;
@@ -1031,7 +1031,6 @@ form button {
   width: 80px;
   height: 100%;
   background-color: #00856f;
-  padding: 40px 0 40px;
   position: fixed;
   top: 0;
   left: 0;
@@ -1046,12 +1045,12 @@ form button {
 
 .btn-expandir {
   width: 100%;
-  padding-left: 20px;
+  padding: 20px;
 }
 
 .btn-expandir > i {
   color: #fff;
-  font-size: 32px;
+  font-size: 28px;
   cursor: pointer;
 }
 
@@ -1063,6 +1062,7 @@ form button {
   align-items: start;
   justify-content: start;
   flex-direction: column;
+  gap: 0.5%;
 }
 
 .menu-lateral li a {
@@ -1089,8 +1089,8 @@ form button {
 .menu-lateral .item-menu a {
   color: #fff;
   text-decoration: none;
-  font-size: 20px;
-  padding: 1.9rem;
+  font-size: 16px;
+  padding: 1.4vh 24px;
   display: flex;
   align-items: flex-end;
   line-height: 40px;
@@ -1106,7 +1106,7 @@ form button {
 }
 
 .menu-lateral .icon > i {
-  font-size: 30px;
+  font-size: 28px;
 }
 
 /* Title - Container */
@@ -1128,10 +1128,14 @@ form button {
   gap: 60px;
   flex-direction: column;
   position: relative;
-  height: max-content;
   margin-left: 80px;
   padding: 10vh 0 0 60px;
   background-color: var(--brand-green-light);
+  height: 100%;
+}
+
+.container-main h1,h2{
+  color: black;
 }
 
 .container-main span {
@@ -1169,7 +1173,7 @@ form button {
   width: 100%;
 
   height: 100%;
-  padding: 0 3%;
+  padding: 1% 3%;
   gap: 3vw;
   color: black;
 }
@@ -1280,8 +1284,13 @@ a {
     display: none;
   }
 
-  .landing {
-    height: 750px;
+  .landing button{
+    width: 100%;
+  }
+
+  .landing h1{
+    text-align: center;
+    width: 100%;
   }
 
   header nav {

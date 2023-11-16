@@ -1,3 +1,5 @@
+<style>header{display: none};</style>
+
 <nav class="menu-lateral">
 
     <div class="btn-expandir">
@@ -54,17 +56,18 @@
 
 
 
-<section class="container-main">
-    <div class="container-title">
-        <h1>Olá user, seja bem vindo a suas metas</h1>
-        <h2>Seu saldo: R$ <span>dinheiro</span></h2>
+<main class="container-main">
+    <div class="title">
+        <h1>Suas metas</h1>
         <span><a href="/dashboard/registergoal">Registrar meta</a></span>
     </div>
-    {{#if hasGoal}}
+    
+   
+    
     <div class="title-goals">
         <h1>Suas <span>metas</span>:</h1>
     </div>
-
+    {{#if hasGoal}}
     <div class="container-goals">
        <ul class='goals-table'>
         {{#each goal}}
@@ -83,4 +86,4 @@
     {{/if}} 
     </div>
 
-</section>
+</main>

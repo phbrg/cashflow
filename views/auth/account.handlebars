@@ -1,4 +1,65 @@
-<h1>Olá {{user.name}}, seja bem vindo ao seu perfil.</h1>
+<nav class="menu-lateral">
+
+    <div class="btn-expandir">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <!--btn-expandir-->
+
+    <ul>
+        <li class="item-menu ativo">
+            <a href="/dashboard">
+                <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
+                <span class="txt-link">Dashboard</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="/dashboard/goal">
+                <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                <span class="txt-link">Metas</span>
+            </a>
+        </li>
+
+        <li class="item-menu">
+            <a href="/dashboard/expense">
+                <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                <span class="txt-link">Gastos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                <span class="txt-link">Ganhos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="txt-link">Conta</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <span class="txt-link">Sair</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<main class="container-main">
+    <div class="container-title">
+        <h1>Olá {{user.name}}, seja bem vindo ao seu perfil.</h1>
+    </div>
+
 <h2>CPF: {{cpf}}</h2>
 <h3>Email: {{user.email}}</h3>
 <a href="/auth/editaccount">Editar informações pessoais</a>
+</main>
+
+<style>header{display:none}</style>
