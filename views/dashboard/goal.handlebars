@@ -1,12 +1,86 @@
-<ul>
-    {{#each goal}}
-    <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
-        Nome: {{this.title}} |
-        Data: {{this.date}} |
-        Meta: {{this.amount}} 
-        <a href="/dashboard/editgoal/{{this.id}}">Editar meta</a>
-    </li>
-    {{/each}}
-</ul>
+<nav class="menu-lateral">
 
-<a href="/dashboard/registergoal">registrar metas</a>
+    <div class="btn-expandir">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <!--btn-expandir-->
+
+    <ul>
+        <li class="item-menu">
+            <a href="/dashboard">
+                <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
+                <span class="txt-link">Dashboard</span>
+            </a>
+        </li>
+        <li class="item-menu ativo">
+            <a href="/dashboard/goal">
+                <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                <span class="txt-link">Metas</span>
+            </a>
+        </li>
+
+        <li class="item-menu">
+            <a href = "/dashboard/expense">
+                <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                <span class="txt-link">Gastos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                <span class="txt-link">Ganhos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="txt-link">Conta</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <span class="txt-link">Sair</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<section class="container-main">
+    <div class="container-title">
+        <h1>Olá user, seja bem vindo a suas metas</h1>
+        <h2>Seu saldo: R$ <span>dinheiro</span></h2>
+        <span><a href="/dashboard/registergoal">Registrar meta</a></span>
+    </div>
+    {{#if hasGoal}}
+    <div class="title-goals">
+        <h1>Suas <span>metas</span>:</h1>
+    </div>
+
+    <div class="container-goals">
+       <ul class='goals-table'>
+        {{#each goal}}
+        <li>
+            <p class='type-table'>Nome da meta: {{this.title}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.date}}</p>
+            <p class='price-table'>Quantia: <span>R$</span> {{this.amount}}</p>
+            {{#if this.completed}} <span>Meta Completa</span></p> {{else}} <span>Meta incompleta</span> {{/if}}
+            <a href="/dashboard/editgoal/{{this.id}}"><button>Editar meta</button></a>
+
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class='empty-table'>Você ainda não tem metas registradas.</p>
+    {{/if}} 
+    </div>
+
+</section>

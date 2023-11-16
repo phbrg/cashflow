@@ -1,9 +1,35 @@
-<form action="/auth/register" method="POST">
-    <input name="name" type="text" placeholder="Nome">
-    <input name="cpf" type="text" placeholder="Cpf - 123.456.789-00">
-    <input name="income" type="text" placeholder="Saldo em conta">
-    <input name="email" type="email" placeholder="Email">
-    <input name="password" type="password" placeholder="Senha">
-    <input name="confirmPassword" type="password" placeholder="Confirmar senha">
-    <button>Register</button>
-</form>
+<main class="form-container">
+    <form action="/auth/register" method="POST">
+        <div>
+            <label for="name">Nome</label>
+            <input name="name" type="text" placeholder="Nome">
+        </div>
+
+        <div>
+            <label for="cpf">CPF</label>
+            <input name="cpf" type="text" placeholder="Cpf - 123.456.789-00">
+        </div>
+
+        <div>
+            <label for="income">Saldo atual</label>
+            <input name="income" type="text" placeholder="Saldo em conta">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input name="email" type="email" placeholder="Email">
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input name="password" type="password" placeholder="Senha">
+        </div>
+
+        <div>
+            <label for="confirmPassword">Password</label>
+            <input name="confirmPassword" type="password" placeholder="Confirmar senha">
+        </div>
+
+        <button>Register</button>
+    </form>
+</main>

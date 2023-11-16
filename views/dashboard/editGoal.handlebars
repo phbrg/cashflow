@@ -1,12 +1,30 @@
-<form action="/dashboard/editgoal/{{goalId}}" method="POST">
-    <input type="text" value="{{goal.title}}" name="title" placeholder="Titulo">
-    <label for="date">Data atual: {{goal.date}}</label>
-    <input type="date" name="date" placeholder="Data">
-    <input type="number" value="{{goal.amount}}" name="amount" placeholder="Quantia">
-    <input type="text" value="{{completed}}" name="completed" placeholder="Atingido">
-    <button>Editar</button>
-</form>
+<main class='form-container'>
+    <form class = 'form-edit' action="/dashboard/editgoal/{{goalId}}" method="POST">
+        <h2>Editar meta</h2>
+        <div>
+            <label for="date">Nome da meta:</label>
+            <input class='input' type="text" value="{{goal.title}}" name="title" placeholder="Titulo">
+        </div>
 
-<form action="/dashboard/deletgoal/{{goalId}}" method="POST">
-    <button>Deletar meta</button>
-</form>
+        <div>
+            <label for="date">Data atual: {{goal.date}}</label>
+            <input class='input' type="date" name="date" placeholder="Data">
+        </div>
+
+        <div>
+            <label for="date">Valor da meta:</label>
+            <input class='input' type="number" value="{{goal.amount}}" step="0.01" name="amount" placeholder="Quantia">
+        </div>
+
+        <div>
+            <label for="date">Meta esta completa?</label>
+            <input class='input' type="text" value="{{completed}}" name="completed" placeholder="Atingido">
+        </div>
+
+        <button>Editar</button>
+    </form>
+
+    <form class='delete-form' action="/dashboard/deletgoal/{{goalId}}" method="POST">
+        <button>Deletar meta</button>
+    </form>
+</main>

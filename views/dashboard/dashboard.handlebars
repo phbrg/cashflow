@@ -7,20 +7,20 @@
 
     <ul>
         <li class="item-menu ativo">
-            <a href="#">
+            <a href="/dashboard">
                 <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
                 <span class="txt-link">Dashboard</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="/dashboard/goal">
                 <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
                 <span class="txt-link">Metas</span>
             </a>
         </li>
 
         <li class="item-menu">
-            <a href="#">
+            <a href="/dashboard/expense">
                 <span class="icon"><i class="fa-solid fa-wallet"></i></span>
                 <span class="txt-link">Gastos</span>
             </a>
@@ -57,56 +57,78 @@
     <div class="container-title">
         <h1>Olá {{user.name}}, seja bem vindo a dashboard</h1>
 
-        <h2>Seu dinheiro: <span {{#if owing}} style="color: red" {{else}} style="color: green"
+        <h2>Seu saldo: R$ <span {{#if owing}} style="color: red" {{else}} style="color: green"
                 {{/if}}>{{realBalance}}</span></h2>
     </div>
 
 
     {{#if hasGoal}}
-    <p>Suas metas:</p>
-    <ul>
+    <div class="title-goals">
+        <h1>Suas <span>metas</span>:</h1>
+    </div>
+
+    <div class="container-goals">
+       <ul class='goals-table'>
         {{#each goal}}
-        <li {{#if this.completed}} style="background-color: green" {{else}} style="background-color: red" {{/if}}>
-            Nome: {{this.title}} |
-            Data: {{this.date}} |
-            Quantia: {{this.amount}}
+        <li>
+            <p class='type-table'>Nome da meta: {{this.title}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.date}}</p>
+            <p class='price-table'>Quantia: <span>R$</span> {{this.amount}}</p>
+            {{#if this.completed}} <span>Meta Completa</span></p> {{else}} <span>Meta incompleta</span> {{/if}}
+            <a href="/dashboard/editgoal/{{this.id}}"><button>Editar meta</button></a>
+
         </li>
         {{/each}}
     </ul>
     {{else}}
-    <p class = 'empty-table'>Você ainda não tem metas registradas.</p>
-    {{/if}}
+    <p class='empty-table'>Você ainda não tem metas registradas.</p>
+    {{/if}} 
+    </div>
+    
 
     {{#if hasExpense}}
-    <p>Suas despesas</p>
-    <ul>
+    <div class="title-expense">
+        <h1>Suas <span>despesas</span>:</h1>
+    </div>
+
+    <div class="container-expense">
+        <ul class='expense-table'>
         {{#each expense}}
         <li>
-            Categoria: {{this.category}} |
-            Descrição: {{this.description}} |
-            Quantia: {{this.amount}} |
-            Data: {{this.createdAt}}
+            <p class='type-table'>Categoria: {{this.category}} </p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
+            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
+            <p><span>Descrição:</span> <br> {{this.description}}</p>
+            <a href="/dashboard/editexpense/{{this.id}}"><button>Editar despesa</button></a>
         </li>
         {{/each}}
     </ul>
     {{else}}
-    <p class = 'empty-table'>Você não tem despesas registradas.</p>
+    <p class='empty-table'>Você não tem despesas registradas.</p>
     {{/if}}
+    </div>
+    
+
 
     {{#if hasIncome}}
-    <p>Seus ganhos</p>
-    <ul>
+    <div class="title-income">
+        <h1>Seus <span>ganhos</span>:</h1>
+    </div>
+    <ul class='income-table'>
         {{#each income}}
         <li>
-            Fonte: {{this.source}} |
-            Descrição: {{this.description}} |
-            Quantia: {{this.amount}} |
-            Data: {{this.createdAt}}
+            <p class='type-table'>Fonte: {{this.source}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
+            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
+            <p><span>Descrição:</span> <br> {{this.description}}</p>
+            <a href="/dashboard/editincome/{{this.id}}"><button>Editar ganhos</button></a>
         </li>
         {{/each}}
     </ul>
+
+
     {{else}}
-    <p class = 'empty-table'>Você não tem ganhos registrados.</p>
+    <p class='empty-table'>Você não tem ganhos registrados.</p>
     {{/if}}
     <a href="/dashboard/registergoal">registrar <span>metas</span></a>
     <a href="/dashboard/registerexpense">registrar <span>despesas</span></a>

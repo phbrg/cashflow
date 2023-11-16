@@ -1,13 +1,85 @@
-<ul>
-    {{#each expense}}
-    <li>
-        Categoria: {{this.category}} |
-        Descrição: {{this.description}} |
-        Data: {{this.createdAt}} |
-        Quantia: {{this.amount}} 
-        <a href="/dashboard/editexpense/{{this.id}}">Editar gasto</a>
-    </li>
-    {{/each}}
-</ul>
+<nav class="menu-lateral">
 
-<a href="/dashboard/registerexpense">registrar gastos</a>
+    <div class="btn-expandir">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <!--btn-expandir-->
+
+    <ul>
+        <li class="item-menu">
+            <a href="/dashboard">
+                <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
+                <span class="txt-link">Dashboard</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="/dashboard/goals">
+                <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+                <span class="txt-link">Metas</span>
+            </a>
+        </li>
+
+        <li class="item-menu ativo">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-wallet"></i></span>
+                <span class="txt-link">Gastos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
+                <span class="txt-link">Ganhos</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="txt-link">Conta</span>
+            </a>
+        </li>
+        <li class="item-menu">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <span class="txt-link">Sair</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<section class="container-main">
+    <div class="container-title">
+        <h1>Olá user, seja bem vindo a suas despesas</h1>
+        <h2>Seu saldo: R$ <span>dinheiro</span></h2>
+        <span><a href="/dashboard/registergoal">Registrar despesa</a></span>
+    </div>
+    {{#if hasExpense}}
+    <div class="title-expense">
+        <h1>Suas <span>despesas</span>:</h1>
+    </div>
+
+    <div class="container-expense">
+        <ul class='expense-table'>
+        {{#each expense}}
+        <li>
+            <p class='type-table'>Categoria: {{this.category}} </p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
+            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
+            <p><span>Descrição:</span> <br> {{this.description}}</p>
+            <a href="/dashboard/editexpense/{{this.id}}"><button>Editar despesa</button></a>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class='empty-table'>Você não tem despesas registradas.</p>
+    {{/if}}
+    </div>
+
+</section>

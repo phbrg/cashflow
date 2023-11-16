@@ -1,16 +1,31 @@
-<form action="/dashboard/registerexpense" method="POST">
-    <select name="category">
-        <option value="moradia">moradia</option>
-        <option value="alimentação">alimentação</option>
-        <option value="transporte">transporte</option>
-        <option value="saude">saude</option>
-        <option value="educação">educação</option>
-        <option value="entreterimento">entreterimento</option>
-        <option value="contas fixas">contas fixas</option>
-        <option value="emergencia">emergencia</option>
-        <option value="outros">outros</option>
-    </select>
-    <textarea name="description" placeholder="Descrição"></textarea>
-    <input type="number" name="amount" placeholder="Quantia">
-    <button>Register expense</button>
-</form>
+<main class="form-container">
+    <form action="/dashboard/registerexpense" method="POST">
+        <h2>Registrar despesa</h2>
+        <div>
+            <label for="category">Categoria da despesa</label>
+            <select name="category">
+                <option value="moradia">moradia</option>
+                <option value="alimentação">alimentação</option>
+                <option value="transporte">transporte</option>
+                <option value="saude">saude</option>
+                <option value="educação">educação</option>
+                <option value="entreterimento">entreterimento</option>
+                <option value="contas fixas">contas fixas</option>
+                <option value="emergencia">emergencia</option>
+                <option value="outros">outros</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="description">Descrição da despesa</label>
+            <textarea rows="3" name="description" placeholder="Descrição"></textarea>
+        </div>
+
+        <div>
+            <label for="amount">Quantia</label>
+            <input type="number" name="amount" placeholder="Quantia">
+        </div>
+
+        <button>Register expense</button>
+    </form>
+</main>

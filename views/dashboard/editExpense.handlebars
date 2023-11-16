@@ -1,20 +1,34 @@
-<form action="/dashboard/editexpense/{{expenseId}}" method="POST">
-    <select name="category">
-        <option value="moradia">moradia</option>
-        <option value="alimentação">alimentação</option>
-        <option value="transporte">transporte</option>
-        <option value="saude">saude</option>
-        <option value="educação">educação</option>
-        <option value="entreterimento">entreterimento</option>
-        <option value="contas fixas">contas fixas</option>
-        <option value="emergencia">emergencia</option>
-        <option value="outros">outros</option>
-    </select>
-    <input type="text" value="{{expense.description}}" name="description" placeholder="Descrição">
-    <input type="number" value="{{expense.amount}}" name="amount" placeholder="Quantia">
-    <button>Editar</button>
-</form>
+<main class="form-container">
 
-<form action="/dashboard/deletexpense/{{expenseId}}" method="POST">
-    <button>Deletar meta</button>
-</form>
+    <form action="/dashboard" method="POST">
+        <h2>Editar despesa</h2>
+        <div>
+            <label for="category">Categoria da despesa</label>
+            <select name="category">
+                <option value="moradia">moradia</option>
+                <option value="alimentação">alimentação</option>
+                <option value="transporte">transporte</option>
+                <option value="saude">saude</option>
+                <option value="educação">educação</option>
+                <option value="entreterimento">entreterimento</option>
+                <option value="contas fixas">contas fixas</option>
+                <option value="emergencia">emergencia</option>
+                <option value="outros">outros</option>
+            </select>
+        </div>
+        <div>
+            <label for="description">Descrição da despesa</label>
+            <input type="text" value="{{expense.description}}" name="description" placeholder="Descrição">
+        </div>
+        <div>
+            <label for="amount">Quantia</label>
+            <input type="number" value="{{expense.amount}}" name="amount" placeholder="Quantia">
+        </div>
+
+        <button>Editar</button>
+    </form>
+
+    <form class='delete-form' action="/dashboard/deletexpense/{{expenseId}}" method="POST">
+        <button>Deletar meta</button>
+    </form>
+</main>

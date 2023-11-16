@@ -1,14 +1,30 @@
-<form action="/dashboard/editincome/{{incomeId}}" method="POST">
-    <select name="source">
-        <option value="salario">salario</option>
-        <option value="lucros">lucros</option>
-        <option value="outros">outros</option>
-    </select>
-    <input type="text" value="{{income.description}}" name="description" placeholder="Descrição">
-    <input type="number" value="{{income.amount}}" name="amount" placeholder="Quantia">
-    <button>Editar</button>
-</form>
+<main class="form-container">
 
-<form action="/dashboard/deletincome/{{incomeId}}" method="POST">
-    <button>Deletar ganho</button>
-</form>
+
+    <form action="/dashboard/editincome/{{incomeId}}" method="POST">
+        <h2>Editar Renda</h2>
+        <div>
+            <label for="source">Fonte da renda</label>
+            <select name="source">
+                <option value="salario">salario</option>
+                <option value="lucros">lucros</option>
+                <option value="outros">outros</option>
+            </select>
+        </div>
+        <div>
+            <label for="description">Descrição da renda</label>
+            <input type="text" value="{{income.description}}" name="description" placeholder="Descrição">
+        </div>
+        <div>
+            <label for="amount">Valor da renda</label>
+            <input type="number" value="{{income.amount}}" step="0.01" name="amount" placeholder="Quantia">
+        </div>
+
+        <button>Editar</button>
+    </form>
+
+    <form class='delete-form' action="/dashboard/deletincome/{{incomeId}}" method="POST">
+        <button>Deletar renda</button>
+    </form>
+
+</main>

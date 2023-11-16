@@ -21,13 +21,13 @@
       </div>
 
       <nav>
-        <a href="/">Home</a>
+        <a href="/" class = 'a'>Home</a>
         {{#if session.userid}}
-                <a href="/dashboard" class = 'a'>dashboard</a>
-                <a href="/auth/logout">logout</a>
+                <a href="/dashboard" class = 'a'>Dashboard</a>
+                <a href="/auth/logout">Logout</a>
             {{else}}
-                <a href="/auth/login">login</a>
-                <a href="/auth/register">register</a>
+                <a href="/auth/login">Login</a>
+                <a href="/auth/register">Register</a>
         {{/if}}
       </nav>
     </header>
