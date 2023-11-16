@@ -6,7 +6,7 @@
     <!--btn-expandir-->
 
     <ul>
-        <li class="item-menu ativo">
+        <li class="item-menu">
             <a href="/dashboard">
                 <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
                 <span class="txt-link">Dashboard</span>
@@ -26,25 +26,25 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="">
                 <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
                 <span class="txt-link">Investimentos</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="/dashboard/income">
                 <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 <span class="txt-link">Ganhos</span>
             </a>
         </li>
-        <li class="item-menu">
-            <a href="#">
+        <li class="item-menu ativo">
+            <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="/auth/logout">
                 <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                 <span class="txt-link">Sair</span>
             </a>
@@ -52,14 +52,16 @@
     </ul>
 </nav>
 
+
 <main class="container-main">
-    <div class="container-title">
-        <h1>Olá {{user.name}}, seja bem vindo ao seu perfil.</h1>
+    <div class="title">
+        <h1>Sua conta</h1>  
+        <a href="/auth/editaccount">Editar informações pessoais</a>
     </div>
 
-<h2>CPF: {{cpf}}</h2>
-<h3>Email: {{user.email}}</h3>
-<a href="/auth/editaccount">Editar informações pessoais</a>
+    <h2>CPF: {{cpf}}</h2>
+    <h2>Email: {{user.email}}</h3>
 </main>
 
-<style>header{display:none}</style>
+<style>header{display: none};</style>
+<style>footer{display: none};</style>

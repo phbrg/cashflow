@@ -1,8 +1,45 @@
-<form action="/auth/editaccount" method="POST">
-    <input type="text" name="name" value="{{user.name}}" placeholder="Nome">
-    <input type="email" name="email" value="{{user.email}}" placeholder="Email">
-    <input type="text" name="cpf" value="{{user.cpf}}" placeholder="Cpf - 123.456.789-00">
-    <input type="password" name="password" placeholder="Senha">
-    <input type="password" name="confirmPassword" placeholder="Confirmar senha">
-    <button>Editar</button>
-</form>
+<main class="form-container">
+    <form action="/auth/editaccount" method="POST">
+        <h2>Editar informações pessoais </h2>
+        <div> <label for="name">Nome</label>
+            <input type="text" name="name" value="{{user.name}}" placeholder="Nome">
+        </div>
+
+        <div><label for="email">Email</label>
+            <input type="email" name="email" value="{{user.email}}" placeholder="Email">
+        </div>
+
+        <div><label for="cpf">CPF</label>
+            <input type="text" name="cpf" value="{{user.cpf}}" placeholder="Cpf - 123.456.789-00">
+        </div>
+
+        <div><label for="password">Senha</label>
+            <input type="password" name="password" placeholder="Senha">
+        </div>
+
+        <div><label for="confirmPassword">Confirmar senha</label>
+            <input type="password" name="confirmPassword" placeholder="Confirmar senha">
+        </div>
+
+
+        <button>Confirmar Edição</button>
+    </form>
+
+</main>
+
+
+
+<style>
+    header {
+        display: none
+    }
+
+    ;
+</style>
+<style>
+    footer {
+        display: none
+    }
+
+    ;
+</style>

@@ -1,28 +1,24 @@
 <main class="container-main">
     <div class="title">
-        <h1>Seus gastos</h1>
-        <span><a href="/dashboard/registerexpense">Registrar gastos</a></span>
+        <h1>Seus ganhos</h1>
+        <span><a href="/dashboard/registerexpense">Registrar ganhos</a></span>
     </div>
     <ul class = 'income-table'>
         {{#each income}}
         <li>
-            Origem: {{this.source}} |
-            Descrição: {{this.description}} |
-            Data: {{this.createdAt}} |
-            Quantia: {{this.amount}}
-            <a href="/dashboard/editincome/{{this.id}}">Editar gasto</a>
+            <p class='type-table'>Fonte: {{this.source}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
+            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
+            <p><span>Descrição:</span> <br> {{this.description}}</p>
+            <a href="/dashboard/editincome/{{this.id}}"><button>Editar ganhos</button></a>
         </li>
         {{/each}}
     </ul>
 
 </main>
-<style>
-    header {
-        display: none
-    }
+<style>header{display: none};</style>
+<style>footer{display: none};</style>
 
-    ;
-</style>
 
 <nav class="menu-lateral">
 
@@ -32,7 +28,7 @@
     <!--btn-expandir-->
 
     <ul>
-        <li class="item-menu ativo">
+        <li class="item-menu">
             <a href="/dashboard">
                 <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
                 <span class="txt-link">Dashboard</span>
@@ -52,25 +48,25 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="">
                 <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
                 <span class="txt-link">Investimentos</span>
             </a>
         </li>
-        <li class="item-menu">
-            <a href="#">
+        <li class="item-menu ativo">
+            <a href="/dashboard/income">
                 <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 <span class="txt-link">Ganhos</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="/auth/logout">
                 <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                 <span class="txt-link">Sair</span>
             </a>
