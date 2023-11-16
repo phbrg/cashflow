@@ -15,7 +15,7 @@
                 <span class="txt-link">Dashboard</span>
             </a>
         </li>
-        <li class="item-menu ativo">
+        <li class="item-menu">
             <a href="/dashboard/goal">
                 <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
                 <span class="txt-link">Metas</span>
@@ -29,18 +29,18 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="">
-                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
-                <span class="txt-link">Investimentos</span>
-            </a>
-        </li>
-        <li class="item-menu">
             <a href="/dashboard/income">
                 <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 <span class="txt-link">Ganhos</span>
             </a>
         </li>
         <li class="item-menu">
+            <a href="/dashboard/invest">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu ativo">
             <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>
@@ -67,17 +67,16 @@
    
     
     <div class="title-goals">
-        <h1>Suas <span>metas</span>:</h1>
     </div>
     {{#if hasGoal}}
     <div class="container-goals">
        <ul class='goals-table'>
         {{#each goal}}
         <li>
-            <p class='type-table'>Nome da meta: {{this.title}}</p>
-            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.date}}</p>
-            <p class='price-table'>Quantia: <span>R$</span> {{this.amount}}</p>
-            {{#if this.completed}} <span>Meta Completa</span></p> {{else}} <span>Meta incompleta</span> {{/if}}
+            <p class='type-table'>{{this.title}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>{{this.date}}</p>
+            <p class='price-table'><span>R$</span> {{this.amount}}</p>
+            {{#if this.completed}} <span style="color: #00856f">Meta Completa</span></p> {{else}} <span style="color: #cc3f3f">Meta incompleta</span> {{/if}}
             <a href="/dashboard/editgoal/{{this.id}}"><button>Editar meta</button></a>
 
         </li>

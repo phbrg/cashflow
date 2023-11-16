@@ -1,4 +1,6 @@
-<nav class="menu-lateral">
+<style>header { display: none; } footer { display: none; }</style>
+
+{{!-- <nav class="menu-lateral">
 
     <div class="btn-expandir">
         <i class="fa-solid fa-bars"></i>
@@ -50,21 +52,19 @@
             </a>
         </li>
     </ul>
-</nav>
+</nav> --}}
 
+<h1>Olá {{user.name}}, seja bem vindo a nossa pagina de investimentos</h1>
+{{#if owing}}
+<p>Poxa que pena, atualmente seu saldo esta negativo em: {{realBalance}}</p>
+<a href="#">Que tal umas dicas de investimentos?</a>
+{{/if}}
+<h2>Atualmente você tem: {{goal.length}} metas!</h2>
+<ul>
+  <h1>Quanto falta para completar suas metas?</h1>
+  {{#each goalRoad}}
+    <li>{{this.title}}: <span>R$ {{this.amount}}</span> | <span>{{this.date}} dias restantes</span></li>
+  {{/each}}
+</ul>
 
-<main class="container-main">
-    <div class="title">
-        <h1>Sua conta</h1>  
-    </div>
-    
-    <div class="ac-details">
-        <p><span class="ac-title">Nome:</span><br><span class="ac-data">{{user.name}}</span></p>
-        <p><span class="ac-title">CPF:</span><br><span class="ac-data">{{cpf}}</span></p>
-        <p><span class="ac-title">Email:</span><br><span class="ac-data">{{user.email}}</span></p>
-        <a href="/auth/editaccount">Editar informações pessoais</a>
-    </div>
-</main>
-
-<style>header{display: none};</style>
-<style>footer{display: none};</style>
+{{!-- FAZER OS DROPDOWN AQUI E COLOCAR UM ID PARA O USUARIO PODER SE REDIRECIONAR AO CLICAR NO A DE OWING --}}

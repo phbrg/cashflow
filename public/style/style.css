@@ -57,10 +57,6 @@ body {
 
 /* root */
 
-/* header */
-
-/* header */
-
 /* 404 */
 @media screen and (min-width: 1024px) {
   :root {
@@ -1604,3 +1600,39 @@ h2 {
 }
 
 /* home */
+
+
+.ac-details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ac-details p {
+  padding: 1vh 0.4vw;
+  min-width: 70%;
+  max-width: 100%;
+  border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.ac-details p .ac-title {
+  font-size: 1.2vw;
+  font-weight: 500;
+  color: var(--gray-button-fale-conosco);
+}
+
+.ac-details p .ac-data {
+  font-size: 1.8vw;
+  font-weight: 800;
+  color: #111;
+  padding: 0 0.4vw;
+}
+
+.ac-details a {
+  padding: 1.6vh 2vw;
+  background-color: var(--brand-green);
+  color: var(--text-color);
+  margin: 2vh 0;
+  border-radius: 5px;
+}

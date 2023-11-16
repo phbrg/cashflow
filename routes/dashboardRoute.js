@@ -19,6 +19,8 @@ router.get('/editexpense/:id', auth, DashboardController.editExpense);
 router.get('/income', auth, DashboardController.getIncome);
 router.get('/editincome/:id', auth, DashboardController.editIncome);
 
+router.get('/invest', auth, DashboardController.getInvest);
+
 router.post('/registergoal', auth, DashboardController.postRegisterGoal);
 router.post('/registerexpense', auth, DashboardController.postRegisterExpense);
 router.post('/registerincome', auth, DashboardController.postRegisterIncome);

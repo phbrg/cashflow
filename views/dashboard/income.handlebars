@@ -1,18 +1,22 @@
 <main class="container-main">
     <div class="title">
         <h1>Seus ganhos</h1>
-        <span><a href="/dashboard/registerexpense">Registrar ganhos</a></span>
+        <span><a href="/dashboard/registerincome">Registrar ganhos</a></span>
     </div>
     <ul class = 'income-table'>
-        {{#each income}}
-        <li>
-            <p class='type-table'>Fonte: {{this.source}}</p>
-            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
-            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
-            <p><span>Descrição:</span> <br> {{this.description}}</p>
-            <a href="/dashboard/editincome/{{this.id}}"><button>Editar ganhos</button></a>
-        </li>
-        {{/each}}
+        {{#if hasIncome}}
+            {{#each income}}
+            <li>
+                <p class='type-table'>{{this.source}}</p>
+                <p class='date-table'><i class="fa-regular fa-calendar"></i>{{this.createdAt}}</p>
+                <p class='price-table'><span>R$</span>{{this.amount}}</p>
+                <p> <br> {{this.description}}</p>
+                <a href="/dashboard/editincome/{{this.id}}"><button>Editar ganhos</button></a>
+            </li>
+            {{/each}}
+        {{else}}
+        <p class='empty-table'>Você ainda não tem ganhos registradas.</p>
+        {{/if}}
     </ul>
 
 </main>
@@ -48,18 +52,18 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="">
-                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
-                <span class="txt-link">Investimentos</span>
-            </a>
-        </li>
-        <li class="item-menu ativo">
             <a href="/dashboard/income">
                 <span class="icon"><i class="fa-solid fa-money-bill"></i></span>
                 <span class="txt-link">Ganhos</span>
             </a>
         </li>
         <li class="item-menu">
+            <a href="/dashboard/invest">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu ativo">
             <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>

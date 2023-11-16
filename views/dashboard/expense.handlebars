@@ -22,16 +22,10 @@
             </a>
         </li>
 
-        <li class="item-menu ativo">
+        <li class="item-menu">
             <a href="/dashboard/expense">
                 <span class="icon"><i class="fa-solid fa-wallet"></i></span>
                 <span class="txt-link">Gastos</span>
-            </a>
-        </li>
-        <li class="item-menu">
-            <a href="">
-                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
-                <span class="txt-link">Investimentos</span>
             </a>
         </li>
         <li class="item-menu">
@@ -41,6 +35,12 @@
             </a>
         </li>
         <li class="item-menu">
+            <a href="/dashboard/invest">
+                <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                <span class="txt-link">Investimentos</span>
+            </a>
+        </li>
+        <li class="item-menu ativo">
             <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>
@@ -71,10 +71,10 @@
         <ul class='expense-table'>
         {{#each expense}}
         <li>
-            <p class='type-table'>Categoria: {{this.category}} </p>
-            <p class='date-table'><i class="fa-regular fa-calendar"></i>Data: {{this.createdAt}}</p>
-            <p class='price-table'>Quantia: <span>R$</span>{{this.amount}}</p>
-            <p><span>Descrição:</span> <br> {{this.description}}</p>
+            <p class='type-table'>{{this.category}} </p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>{{this.createdAt}}</p>
+            <p class='price-table'><span>R$</span>{{this.amount}}</p>
+            <p>{{this.description}}</p>
             <a href="/dashboard/editexpense/{{this.id}}"><button>Editar despesa</button></a>
         </li>
         {{/each}}

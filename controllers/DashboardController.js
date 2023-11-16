@@ -19,15 +19,11 @@ module.exports = class HomeContoller {
     let income = await Income.findAll({ raw: true, where: { UserId: userId } });
 
     expense.map((array) => {
-      array.createdAt = `${array.createdAt.getFullYear()}-${
-        array.createdAt.getMonth() + 1
-      }-${array.createdAt.getDate()}`;
+      array.createdAt = `${array.createdAt.getFullYear()}-${array.createdAt.getMonth() + 1}-${array.createdAt.getDate()}`;
     });
 
     income.map((array) => {
-      array.createdAt = `${array.createdAt.getFullYear()}-${
-        array.createdAt.getMonth() + 1
-      }-${array.createdAt.getDate()}`;
+      array.createdAt = `${array.createdAt.getFullYear()}-${array.createdAt.getMonth() + 1}-${array.createdAt.getDate()}`;
     });
 
     let hasGoal = true;
@@ -193,7 +189,12 @@ module.exports = class HomeContoller {
       where: { UserId: userId },
     });
 
-    let hasGoal = goal !== undefined || goal !== null || goal.length == 0;
+    let hasGoal = true;
+
+    if(goal.length === 0) {
+      hasGoal = false;
+    }
+
     res.render("dashboard/goal", { goal, hasGoal });
   }
 
@@ -413,11 +414,14 @@ module.exports = class HomeContoller {
 
     income.forEach((array) => {
       const fullDate = new Date(array.createdAt);
-
-      array.createdAt = `${fullDate.getFullYear()}-${
-        fullDate.getMonth() + 1
-      }-${fullDate.getDate()}`;
+      array.createdAt = `${fullDate.getFullYear()}-${fullDate.getMonth() + 1}-${fullDate.getDate()}`;
     });
+
+    let hasIncome = true;
+
+    if(income.length === 0) {
+      hasIncome = false;
+    }
 
     res.render("dashboard/income", { income });
   }
@@ -493,5 +497,39 @@ module.exports = class HomeContoller {
         res.redirect("/dashboard/income");
       })
       .catch((err) => console.log(`delet income error: ${err}`));
+  }
+
+  static async getInvest(req, res) {
+    const userId = req.session.userid;
+
+    const user = await User.findOne({ raw: true, where: { id: userId } });
+    const goal = await FinanceGoal.findAll({ raw: true, where: { UserId: userId } });
+    const expense = await Expense.findAll({ raw: true, where: { UserId: userId } });
+    const income = await Income.findAll({ raw: true, where: { UserId: userId } });
+
+    const totalExpense = expense.reduce((ac, obj) => ac + obj.amount, 0);
+    const totalIncome = income.reduce((ac, obj) => ac + obj.amount, 0);
+
+    let realBalance = user.balance + totalIncome - totalExpense;
+
+    let goalRoad = [];
+    goal.forEach(array => {
+      let diff = realBalance - array.amount;
+      let dateDiff = (new Date(array.date) - new Date())/ (1000 * 60 * 60 * 24);
+      if(!array.completed) {
+        goalRoad.push({
+          title: array.title,
+          amount: diff,
+          date: dateDiff.toFixed(1)
+        });
+      }
+    });
+
+    let owing = false;
+    if(realBalance < 0) {
+      owing = true;
+    }
+
+    res.render('dashboard/invest', { user, goal, expense, income, realBalance, goalRoad, owing });
   }
 };
