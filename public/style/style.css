@@ -1058,7 +1058,7 @@ form a span {
 
 .container-main {
   display: flex;
-  gap: 60px;
+  gap: 20px;
   flex-direction: column;
   position: relative;
   margin-left: 80px;
@@ -1068,7 +1068,8 @@ form a span {
 }
 
 .container-main h1,
-h2 {
+h2,
+h3 {
   color: black;
 }
 
@@ -1197,13 +1198,139 @@ h2 {
   color: black;
 }
 
+.container-main li {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.container-main li span {
+  font-size: 1.2rem;
+}
+
+.container-invest {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.container-invest h1 {
+  color: #333;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.container-invest .tab {
+  position: relative;
+  background: #fff;
+  color: #fff;
+  width: 90%;
+  padding: 0 20px 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.container-invest .tab input {
+  appearance: none;
+}
+
+.container-invest .tab label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.container-invest .tab label::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+}
+
+.container-invest .tab:hover label::after {
+  color: #00856f;
+}
+
+.container-invest .tab input:checked ~ label::after {
+  transform: rotate(135deg);
+  color: #fff;
+}
+
+.container-invest .tab label h2 {
+  width: 40px;
+  height: 40px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.25em;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.container-invest .tab label h3 {
+  position: relative;
+  font-weight: 500;
+  color: #333;
+  z-index: 10;
+  padding-left: 5px;
+}
+
+.container .tab .content {
+  max-height: 0;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.container-invest .tab input:checked ~ .content {
+  max-height: 100vh;
+}
+
+.container-invest .tab .content p {
+  position: relative;
+  padding: 0;
+  color: #fff;
+  z-index: 10;
+  height: 0px;
+}
+
+.container-invest .tab label h2 {
+  background: #00856f;
+}
+
+.container-invest .tab input:checked ~ label h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(225, 225, 225, 0.2);
+  font-size: 8em;
+  justify-content: flex-end;
+}
+
+.container-invest .tab input:checked ~ label h3 {
+  background: #fff;
+  padding: 2px 10px;
+  color: #333;
+  border-radius: 2px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.container-invest .tab input:checked ~ .content p {
+  padding: 20px 0;
+  height: 100%;
+  color: #fff;
+}
+
 /*media - mobile*/
 
 @media (max-width: 480px) {
-  section {
-    height: 100%;
-  }
-
   .div-recursos ul li p {
     width: 80%;
     margin: auto;
@@ -1525,6 +1652,13 @@ h2 {
   .menu .footer-lower {
     display: none;
   }
+  .container-invest {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 997px) {
@@ -1601,7 +1735,6 @@ h2 {
 
 /* home */
 
-
 .ac-details {
   display: flex;
   align-items: flex-start;
@@ -1617,13 +1750,13 @@ h2 {
 }
 
 .ac-details p .ac-title {
-  font-size: 1.2vw;
+  font-size: 2vh;
   font-weight: 500;
   color: var(--gray-button-fale-conosco);
 }
 
 .ac-details p .ac-data {
-  font-size: 1.8vw;
+  font-size: 2.3vh;
   font-weight: 800;
   color: #111;
   padding: 0 0.4vw;

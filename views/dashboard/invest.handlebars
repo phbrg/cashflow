@@ -1,6 +1,6 @@
 <style>header { display: none; } footer { display: none; }</style>
 
-{{!-- <nav class="menu-lateral">
+<nav class="menu-lateral">
 
     <div class="btn-expandir">
         <i class="fa-solid fa-bars"></i>
@@ -33,13 +33,13 @@
                 <span class="txt-link">Ganhos</span>
             </a>
         </li>
-        <li class="item-menu">
+        <li class="item-menu ativo">
             <a href="/dashboard/invest">
                 <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
                 <span class="txt-link">Investimentos</span>
             </a>
         </li>
-        <li class="item-menu ativo">
+        <li class="item-menu">
             <a href="/auth/account">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
                 <span class="txt-link">Conta</span>
@@ -52,19 +52,167 @@
             </a>
         </li>
     </ul>
-</nav> --}}
+</nav>
+<main class="container-main">
+    <div class="title">
+        <h1>Olá {{user.name}}, seja bem vindo a nossa pagina de investimentos</h1>
+        {{#if owing}}
+        <p>Poxa que pena, atualmente seu saldo esta negativo em: {{realBalance}}</p>
+        {{/if}}
+         <h2>Atualmente você tem: {{goal.length}} metas!</h2>
+        
+    </div>
+     <h1>Quanto falta para completar sua meta?</h1>
+    <ul class = 'goals-table'>
+        
+        {{#each goalRoad}}
+        <li>
+           
+            <p class='type-table'>{{this.title}}</p>
+            <p class='date-table'><i class="fa-regular fa-calendar"></i>{{this.date}} dias restantes</p>
+            <p class='price-table'><span>R$</span> {{this.amount}}</p>
+            {{#if this.completed}} <span style="color: #00856f">Meta Completa</span></p> {{else}} <span style="color: #cc3f3f">Meta incompleta</span> {{/if}}
+            
+        </li>
+        {{/each}}
+    </ul>
 
-<h1>Olá {{user.name}}, seja bem vindo a nossa pagina de investimentos</h1>
-{{#if owing}}
-<p>Poxa que pena, atualmente seu saldo esta negativo em: {{realBalance}}</p>
-<a href="#">Que tal umas dicas de investimentos?</a>
-{{/if}}
-<h2>Atualmente você tem: {{goal.length}} metas!</h2>
-<ul>
-  <h1>Quanto falta para completar suas metas?</h1>
-  {{#each goalRoad}}
-    <li>{{this.title}}: <span>R$ {{this.amount}}</span> | <span>{{this.date}} dias restantes</span></li>
-  {{/each}}
-</ul>
+    <section class="container-invest">
+        <h1>Que tal umas dicas de investimentos?</h1>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc1">
+            <label for="acc1">
+                <h2>01</h2>
+                <h3>Faça seu planejamento financeiro</h3>
+            </label>
+            <div class="content">
+                <p>Ele fornece o mapeamento das suas finanças, isto é, as entradas e saídas do seu orçamento. Para isso,
+                    você pode utilizar planilhas ou aplicativos de celular. Anote todos os gastos, inclusive os
+                    recorrentes.</p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc2">
+            <label for="acc2">
+                <h2>02</h2>
+                <h3>Analise quanto de sua renda é possível investir</h3>
+            </label>
+            <div class="content">
+                <p>O ideal é aplicar em torno de 20% do seu rendimento, utilizando a regra 50 – 30 – 20. Ou seja, 50% de
+                    seu rendimento deve ser destinado a seu custo de vida e gastos essenciais, 30% a seu estilo de vida
+                    como roupas, lazer e demais supérfluos e 20% destinado a poupança e investimentos. </p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc3">
+            <label for="acc3">
+                <h2>03</h2>
+                <h3>Estude os tipos de investimentos</h3>
+            </label>
+            <div class="content">
+                <p>A economista destaca dois tipos de investimentos: Renda Fixa, com rendimento pré-fixado e garantia do
+                    FGC, e Renda Variável, cujo rendimento varia conforme o índice escolhido, podendo ser negativo. </p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc4">
+            <label for="acc4">
+                <h2>04</h2>
+                <h3>Comece com investimentos de baixo risco</h3>
+            </label>
+            <div class="content">
+                <p>Não há uma regra fixa, mas geralmente iniciar com renda fixa é mais adequado, pois a renda variável
+                    demanda conhecimento e tolerância ao risco. Além disso, ao iniciar um investimento para criar uma
+                    reserva de emergência, a renda fixa é mais recomendada. </p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc5">
+            <label for="acc5">
+                <h2>05</h2>
+                <h3>Estabeleça metas</h3>
+            </label>
+            <div class="content">
+                <p>Qual é o seu sonho de curto, médio e longo prazo? De curto prazo, pode ser fazer uma
+                    reserva de emergência ou trocar o celular, por exemplo. Já o de médio, considerando os próximos
+                    cinco anos, pode ser fazer uma viagem incrível.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc6">
+            <label for="acc6">
+                <h2>06</h2>
+                <h3>Considere as taxas administrativas</h3>
+            </label>
+            <div class="content">
+                <p>Definir o prazo do investimento e entender os custos envolvidos são essenciais. A taxa de
+                    administração/custódia cobre serviços de gestão dos fundos. Essa taxa varia entre produtos e
+                    instituições, sendo um percentual do valor investido.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc7">
+            <label for="acc7">
+                <h2>07</h2>
+                <h3>Avalie a liquidez</h3>
+            </label>
+            <div class="content">
+                <p>Ela corresponde à velocidade e facilidade com a qual um ativo pode ser convertido em caixa, dinheiro.
+                    “Por isto, uma de minhas dicas essenciais é entender a finalidade do investimento, pois assim será
+                    pensado na necessidade do saque”, aconselha Dirlene (economista). </p>
+            </div>
+
+        </div>
+
+
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc8">
+            <label for="acc8">
+                <h2>08</h2>
+                <h3>Diversifique os investimentos</h3>
+            </label>
+            <div class="content">
+                <p>Diversificar investimentos ajuda a ter bons rendimentos em diferentes condições de mercado. Isso gera
+                    um fluxo de caixa na carteira, possibilitando reinvestimentos ou pagamento de despesas. Manter uma
+                    carteira diversificada protege da volatilidade do mercado. </p>
+            </div>
+
+        </div>
+
+
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc9">
+            <label for="acc9">
+                <h2>09</h2>
+                <h3>Tenha disciplina e persistência</h3>
+            </label>
+            <div class="content">
+                <p>Evite tomar decisões baseadas nas vontades momentâneas e nas emoções. Mantenha o foco nos seus
+                    objetivos. Os investimentos em renda fixa, mesmo com boas taxas de rentabilidade, não dão retorno
+                    rapidamente. Então, tenha paciência e continue a investir. </p>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
 
 {{!-- FAZER OS DROPDOWN AQUI E COLOCAR UM ID PARA O USUARIO PODER SE REDIRECIONAR AO CLICAR NO A DE OWING --}}
