@@ -935,7 +935,6 @@ form button {
 }
 
 form a {
-  width: 100%;
   text-align: center;
   font-size: 1.1rem;
 }
@@ -1037,7 +1036,7 @@ form a span {
   font-size: 28px;
 }
 
-.icon {
+.menu-lateral .icon {
   display: flex;
   padding: 0.2rem;
 }
@@ -1349,7 +1348,7 @@ h3 {
   font-size: 1.5rem;
 }
 
-.title a{
+.container-invest .title a{
   text-decoration: underline;
   color: #323232;
   font-size: 1.3rem;
@@ -1364,9 +1363,57 @@ h3 {
   color: #00856f;
 }
 
+.flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2.5vh 0.8vw;
+  color: #d2d2d2;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  min-width: 20%;
+  border: 2px solid var(--brand-green);
+  z-index: 1;
+  text-align: center;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  color: #111;
+  font-size: 1vw;
+  font-weight: 700;
+  animation: fadeOut 2s ease-out 0.7s forwards;
+}
+
+form .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form .title .icon{
+  position: absolute;
+  color: #005e4e;
+  left: 60px;
+}
+
+@keyframes fadeOut {
+  to {
+    display: none;
+  }
+}
 /*media - mobile*/
 
 @media (max-width: 480px) {
+  .flash{
+    padding: 3vh 1vh;
+    font-size: 1rem;
+    min-width: 70%;
+  }
+
+  form input{
+    padding: 2vh;
+  }
+
   .div-recursos ul li p {
     width: 80%;
     margin: auto;
