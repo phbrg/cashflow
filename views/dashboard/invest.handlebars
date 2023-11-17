@@ -57,13 +57,14 @@
     <div class="title">
         <h1>Olá {{user.name}}, seja bem vindo a nossa pagina de investimentos</h1>
         {{#if owing}}
-        <p>Poxa que pena, atualmente seu saldo esta negativo em: {{realBalance}}</p>
+        <p>Poxa que pena, atualmente seu saldo esta negativo em: <span class =  'money'>R$</span><span style="color: #cc3f3f;"> {{realBalance}}</span></p>
+        <a href="#invest">Dicas de investimentos</a>
         {{/if}}
-         <h2>Atualmente você tem: {{goal.length}} metas!</h2>
         
     </div>
      <h1>Quanto falta para completar sua meta?</h1>
-    <ul class = 'goals-table'>
+     <h2>Atualmente você tem: <span style="color: #00856f;">{{goal.length}} metas</span></h2>
+    <ul class = 'invest-table'>
         
         {{#each goalRoad}}
         <li>
@@ -78,9 +79,9 @@
     </ul>
 
     <section class="container-invest">
-        <h1>Que tal umas dicas de investimentos?</h1>
+        <h1>Querendo investir? olhe algumas de nossas dicas</h1>
 
-        <div class="tab">
+        <div id="invest" class="tab">
             <input type="radio" name="acc" id="acc1">
             <label for="acc1">
                 <h2>01</h2>
@@ -213,6 +214,3 @@
 
     </section>
 </main>
-
-
-{{!-- FAZER OS DROPDOWN AQUI E COLOCAR UM ID PARA O USUARIO PODER SE REDIRECIONAR AO CLICAR NO A DE OWING --}}

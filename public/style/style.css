@@ -1101,7 +1101,8 @@ h3 {
 
 .goals-table,
 .expense-table,
-.income-table {
+.income-table,
+.invest-table {
   display: grid;
   grid-template-columns: repeat(3, 3fr);
   width: 100%;
@@ -1133,9 +1134,23 @@ h3 {
   gap: 0.5vh;
   min-height: 30vh;
   width: 90%;
-  padding: 3vh 1.4vh 3vh 1.4vh;
+  padding: 3vh 1.4vh;
   border-radius: 8px;
   border: 3px solid #00453a;
+}
+
+.invest-table li{
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 01vh;
+  min-height: 25vh;
+  width: 70%;
+  padding: 3vh 1.8vh;
+  border-radius: 8px;
+  border: 3px solid #00453a;
+
 }
 
 .type-table {
@@ -1328,6 +1343,27 @@ h3 {
   color: #fff;
 }
 
+.title p{
+  color: #323232;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.title a{
+  text-decoration: underline;
+  color: #323232;
+  font-size: 1.3rem;
+}
+
+.title .money{
+  font-size: 1.2rem;
+  color: #323232;
+}
+
+.title a:hover{
+  color: #00856f;
+}
+
 /*media - mobile*/
 
 @media (max-width: 480px) {
@@ -1514,6 +1550,7 @@ h3 {
 
   footer {
     height: 30vh;
+    margin-top: 1vh;
     font-family: "Poppins", sans-serif;
   }
 
@@ -1583,13 +1620,14 @@ h3 {
 
   .goals-table,
   .expense-table,
-  .income-table {
+  .income-table,
+  .invest-table {
     grid-template-columns: repeat(1, 1fr);
   }
 
   .goals-table li,
   .expense-table li,
-  .income-table li {
+  .income-table li{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -1600,6 +1638,19 @@ h3 {
     border-radius: 5px;
     border: 1px solid #00453a;
   }
+
+  .invest-table li{
+    display: flex;
+    align-items: start  ;
+    justify-content: space-around;
+    width: 90%;
+    padding: 1vh;
+
+    font-size: 0.65rem;
+    border-radius: 5px;
+    border: 1px solid #00453a;
+  }
+
   .menu-lateral a {
     font-size: 0.65rem;
   }
@@ -1768,4 +1819,8 @@ h3 {
   color: var(--text-color);
   margin: 2vh 0;
   border-radius: 5px;
+}
+
+section {
+  padding: 2vw;
 }
