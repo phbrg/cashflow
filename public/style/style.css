@@ -924,7 +924,7 @@ form label {
   font-weight: 600;
 }
 form button {
-  padding: 2vh 1vh;
+  padding: 1.7vh 1vh;
   font-weight: 600;
   background-color: var(--brand-green);
   border: none;
@@ -1138,7 +1138,7 @@ h3 {
   border: 3px solid #00453a;
 }
 
-.invest-table li{
+.invest-table li {
   display: flex;
   align-items: start;
   justify-content: space-evenly;
@@ -1149,7 +1149,6 @@ h3 {
   padding: 3vh 1.8vh;
   border-radius: 8px;
   border: 3px solid #00453a;
-
 }
 
 .type-table {
@@ -1342,24 +1341,24 @@ h3 {
   color: #fff;
 }
 
-.title p{
+.title p {
   color: #323232;
   font-weight: 600;
   font-size: 1.5rem;
 }
 
-.container-invest .title a{
+.container-invest .title a {
   text-decoration: underline;
   color: #323232;
   font-size: 1.3rem;
 }
 
-.title .money{
+.title .money {
   font-size: 1.2rem;
   color: #323232;
 }
 
-.title a:hover{
+.title a:hover {
   color: #00856f;
 }
 
@@ -1383,14 +1382,14 @@ h3 {
   animation: fadeOut 2s ease-out 0.7s forwards;
 }
 
-form .title{
+form .title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-form .title .icon{
+form .title .icon {
   position: absolute;
   color: #005e4e;
   left: 60px;
@@ -1404,13 +1403,13 @@ form .title .icon{
 /*media - mobile*/
 
 @media (max-width: 480px) {
-  .flash{
+  .flash {
     padding: 3vh 1vh;
     font-size: 1rem;
     min-width: 70%;
   }
 
-  form input{
+  form input {
     padding: 2vh;
   }
 
@@ -1606,10 +1605,6 @@ form .title .icon{
     flex-direction: column;
   }
 
-  .footer_lower .home-sci {
-    padding-bottom: 35px;
-  }
-
   .footer_lower i {
     font-size: 18px;
   }
@@ -1674,7 +1669,7 @@ form .title .icon{
 
   .goals-table li,
   .expense-table li,
-  .income-table li{
+  .income-table li {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -1686,9 +1681,9 @@ form .title .icon{
     border: 1px solid #00453a;
   }
 
-  .invest-table li{
+  .invest-table li {
     display: flex;
-    align-items: start  ;
+    align-items: start;
     justify-content: space-around;
     width: 90%;
     padding: 1vh;
@@ -1736,7 +1731,7 @@ form .title .icon{
   }
 
   .footer_lower .home-sci {
-    padding-bottom: 35px;
+    padding-bottom: 15px;
   }
 
   .footer_lower i {
