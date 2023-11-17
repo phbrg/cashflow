@@ -885,11 +885,11 @@ form {
   position: relative;
   background: #fff;
   border-radius: 7px;
-  padding: 60px;
+  padding: 25px 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 3vh;
+  gap: 1vw;
   width: 35%;
   min-height: 60%;
   color: #2b343b;
@@ -906,9 +906,9 @@ textarea {
   background-color: #f5f5f5;
   color: #9c9c9c;
   border-radius: 4px;
-  padding: 0.9rem;
+  padding: 0.75vw;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 form input:focus,
