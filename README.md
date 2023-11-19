@@ -38,7 +38,7 @@ Certifique-se de ter os seguintes aplicativos instalados em sua máquina:
  > Caso não apareça existiu algum erro ao iniciar o projeto, caso você seja um professor responsável pela avaliação do projeto contate o desenvolvedor back-end no microsoft teams ou em alguma aula e mostre o erro, caso contrario me contate via github.
 4. Acesse o link: http://localhost:3000 
 
-> Você irá precisar de um arquivo .env com as variaveis indicadas no arquivo: [conn.js](conn.js) para a execução da aplicação localmente.
+> Você irá precisar de um arquivo .env com as variaveis indicadas no arquivo: [conn.js](/db/conn.js) para a execução da aplicação localmente.
 
 ## Licença 
 Este projeto está licenciado sob a [Licença MIT](LICENSE). Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
